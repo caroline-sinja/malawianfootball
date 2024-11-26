@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<style>
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            position: relative;
+            font-style: normal;
+            font-size:16;
+   
+        }
+        @media (max-width:768px) {
+  body{
+    font-size: 16px;
+
+  }
+}
+@media(max-width:480px)
+{
+ body { font-size: 13px;
+
+  }
+}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    
+
+h1 {
+  color: #2c3e50;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background: linear-gradient(90deg, #00264d, #00a1e2);
+  color: white;
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  text-align: center;
+  font-size: medium;
+  width:auto;
+  height: 80px;
+  position: sticky;
+  top:0;
+  z-index:1000;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+html{
+  scroll-behavior: smooth;
+}
+@keyframes fadeIn  {
+  0%{ opacity: 0;
+  transform: translateY(20px);
+  }
+ 100%{
+  opacity: 1;
+  transform: translateY(0);
+ }
+}
+section
+{
+  animation: fadeIn 1s ease-in-out;
+}
+footer {
+  background: linear-gradient(90deg, #00264d, #00a1e2);
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer nav a {
+  margin: 0 10px;
+  color: #00d4ff;
+  text-decoration: none;
+}
+
+footer nav a:hover {
+  text-decoration: underline;
+}
+
+.logo{
+    max-width:60px;
+    border-radius: 10px;
+    height:60px;
+    margin:8px;
+    display:inline-block;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: tranform 0.5s ease;
+    
+  }
+  .logo:hover{
+    transform: scale(1.4);
+    
+  }
+  .head
+  {
+    font-family:sans-serif;
+    font-weight: bold;
+    display:block;
+    font-size: 24;
+    color: white;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  .social-icons {
+    margin-top: 10px;
+    justify-content: center;
+  }
+  .social-icons a {
+  color: white;
+  font-size: 16px;
+  display: flex;
+  margin-left: auto;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.4);
+}
+
+.social-icons a.facebook:hover {
+  color: #3b5998; 
+}
+
+.social-icons a.instagram{
+  color: #E4405F; 
+}
+.social-icons a.tiktok {
+  color: black; 
+  border-color: red;
+}
+
+.account-icon{
+  font-size:16;
+  display:flex;
+  flex-direction: column;
+}
+.account-icon:hover{
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #007bff;
+
+}
+
+
+ 
+    </style> 
+<html lang="en"></html>  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MalawiFootball2024: Comprehensive coverage of the 16 Super League of Malawi Teams 
+    for the 2024 season- News, Matches, Teams and many more">
+<meta name="keywords" content="Malawi football, 2024 fixtures,malawi footbal1 results, malawi football teams,
+malawi football schedules, FCB Nyasa Big Bullets, Mighty Mukuru Wanderers, 
+Mzuzu City Hammers, Silver strikers, Bangwe All stars, Creck SC, Moyale Barracks FC, Mighty Tigers, 
+MAFCO FC, Chitipa United FC, Premeir Bet Dedza Dynamos, 2024 Super league table, 2024 malawi football updates and news
+Civil Service United, Karonga United, FOMO FC, Baka city FC, Kamuzu Barracks FC, Super League of Malawi, 2024 Football">
+<meta name="Caroline sinja" content="Caroline Sinja">
+
+<title>Malawi Football 2024 | Home - News,Teams,Table</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  
+  <script type="module">
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";  
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";  
+        
+
+        import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";  
+    import { auth, db } from "./firebaseconfig.js";  // Ensure this is the path to your firebaseConfig file
+    import { addDoc, collection } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"; 
+    </script>
+
+</head>
+<body>
+    
+    <header class="header"> 
+        <img class="logo" src="main logo.jpg" alt="main-logo">
+        <h2 class="head"> Malawi-Football-2024</h2>
+       <div class="account-container">
+          <div class="account-icon">
+            
+            <a href="log-in.html"><i class="fa-solid fa-user"> </i></a>
+            
+         </div>
+       </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=61552223489959&mibextid=ZbWKwL" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/carlo_sinja/profilecard/?igsh=dWpyZWd4aWphbDVi" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@carolyn6799?_t=8rZyk6JPI3E&_r=1" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a>
+          </div>
+         
+    </header>
+    <h4><p>Explore the Malawi's finest Footbal Updates for all the teams in TNM Super League of Malawi - News, Stats, 
+         Matches, Results and Highlights From the 2024 Football Season</p></h4>
+         <p>
+          <strong>NOTE:</strong> "As the season progresses, we will be updating on this site regularly, So stay 
+          tuned for the latest updates!!"
+         </p>
+        <nav>
+            <h5>
+                <a href="#Teams">Teams|</a>
+                <a href="#Table">Table|</a>
+                <a href="#News">News|</a>
+                <a href="#contact">Contact Us|</a>
+                <a href="#support">Support Us</a>
+            </h5>
+           
+        </nav>
+    
+    <main>
+        <section id="Teams">
+            
+               <P>1. Mighty Mukuru wanderers</P>
+               <p>2. Mzuzu City Hammers</p> 
+               <p>3. Silver strikers</p>
+               <p>4. Bangwe All stars</p>
+               <p>5. Creck SC</p> 
+               <p>6. Moyale Barracks FC</p>
+               <p>7. Mighty Tigers</p>
+               <p>8. FCB Nyasa Big Bullets</p>
+               <p>9. MAFCO FC</p>
+               <p>10. Chitipa United </p>
+               <p>11. Premeir Bet Dedza Dynamos</p>
+               <p>12. Civil Service United</p>
+               <P>13. Karonga United</P>
+               <p>14. FOMO FC</p>
+               <P>15. Baka city FC</P>
+               <p>16. Kamuzu Barracks FC</p>
+
+        </section>
+       
+        <section id="News">
+            <h2>News & Updates</h2>
+            <p>In Malawi's 2024 football scene, significant highlights include the Airtel Top 8 Cup,
+                 where FCB Nyasa Big Bullets won the cup with a narrow 1-0 victory over Silver Strikers. 
+                 Ernest Petro's decisive header after a great pass from Alick Lungu in the second half,
+                  marking a high point for Bullets as they defended their
+                  title successfully at Bingu National Stadium​ in Lilongwe​. Airtel Top 8 Tournament Action: Mighty Mukuru Wanderers and Bullets
+                   FC are among the favorites in this year's Airtel Top 8.
+                   <p>Several top Clubs in the super League such as Silver Strikers, Mighty Wanderers and the Newly Promoted 
+                    Creck SC, underwent important changes in their technical staff. These changes include appointment of new
+                    head coaches and assistance to improve performance in the 2024 season.
+                   </p>
+               <p>The Blantyre Derby between Bullets and Mighty Mukuru Wanderers was also noteworthy,
+                 showcasing intense competition and tactical maneuvers. Wanderers, strengthened by standout players like
+                  Blessings Singini, showed a much-improved defense this season, conceding just one goal in four matches. Meanwhile, Bullets 
+                  relied on midfield stability from players like Yankho Singo and Ernest Petro, making them formidable in possession and attack​​​​.</p>
+                
+               <p>Additionally, the Super League of Malawi (SULOM) in partnership with TNM, has introduced a 100% electronic ticketing
+                for all matches starting from December 1, 2024. This is set to improve fan experience, reduce fraud and provide easier
+                access to tickets via mobile payments.
+               </p>
+        </section>
+        
+        <section id="Table">
+            <h2 style="font-weight: bold;text-align: center;text-decoration: underline;">
+                THE 2024 SUPER LEAGUE OF MALAWI TABLE</h2>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+    <table>
+        <thead>
+            <tr>
+                <th>Club</th>
+                <th>MP</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>GF</th>
+                <th>GA</th>
+                <th>GD</th>
+                <th>Pts</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Silver Strikers</td>
+                <td>26</td>
+                <td>16</td>
+                <td>10</td>
+                <td>0</td>
+                <td>52</td>
+                <td>14</td>
+                <td>36</td>
+                <td>58</td>
+               
+            </tr>
+            <tr>
+                <td>Mighty Mukuru Wanderers</td>
+                <td>26</td>
+                <td>16</td>
+                <td>5</td>
+                <td>5</td>
+                <td>52</td>
+                <td>14</td>
+                <td>38</td>
+                <td>53</td>
+                
+            </tr>
+            <tr>
+              <td>FCB Nyasa Big Bullets</td>
+              <td>26</td>
+              <td>11</td>
+              <td>12</td>
+              <td>3</td>
+              <td>34</td>
+              <td>17</td>
+              <td>17</td>
+              <td>45</td>
+             
+          </tr>
+            <tr>
+                <td>Mzuzu City Hammers</td>
+                <td>28</td>
+                <td>12</td>
+                <td>8</td>
+                <td>8</td>
+                <td>28</td>
+                <td>32</td>
+                <td>-4</td>
+                <td>44</td>
+               
+            </tr>
+             
+            
+
+             
+            <tr>
+                <td>Cvil Service United</td>
+                <td>28</td>
+                <td>11</td>
+                <td>9</td>
+                <td>8</td>
+                <td>33</td>
+                <td>24</td>
+                <td>9</td>
+                <td>42</td>
+               
+            </tr>
+            <tr>
+              <td>Moyale Barracks</td>
+              <td>28</td>
+              <td>9</td>
+              <td>12</td>
+              <td>7</td>
+              <td>29</td>
+              <td>23</td>
+              <td>6</td>
+              <td>39</td>
+             
+          </tr>
+             
+            <tr>
+                <td>Creck SC</td>
+                <td>28</td>
+                <td>9</td>
+                <td>11</td>
+                <td>8</td>
+                <td>39</td>
+                <td>31</td>
+                <td>8</td>
+                <td>38</td>
+                
+            </tr>
+
+             
+            <tr>
+                <td>Karonga United</td>
+                <td>27</td>
+                <td>10</td>
+                <td>8</td>
+                <td>9</td>
+                <td>27</td>
+                <td>27</td>
+                <td>0</td>
+                <td>38</td>
+               
+            </tr>
+
+
+              
+            <tr>
+                <td>MAFCO FC</td>
+                <td>28</td>
+                <td>9</td>
+                <td>11</td>
+                <td>8</td>
+                <td>28</td>
+                <td>37</td>
+                <td>-6</td>
+                <td>38</td>
+               
+            </tr>
+                
+            <tr>
+                <td>Kamuzu Barracks</td>
+                <td>29</td>
+                <td>8</td>
+                <td>13</td>
+                <td>8</td>
+                <td>30</td>
+                <td>28</td>
+                <td>2</td>
+                <td>37</td>
+               
+            </tr>
+              
+            
+            <tr>
+                <td>Premeir Bet Dedza Dynamos</td>
+                <td>28</td>
+    
+                <td>7</td>
+                <td>14</td>
+                <td>7</td>
+                <td>30</td>
+                <td>26</td>
+                <td>4</td>
+                <td>35</td>
+               
+            </tr>
+              
+            <tr>
+                <td>Mighty Tigers</td>
+                <td>29</td>
+                <td>7</td>
+                <td>11</td>
+                <td>11</td>
+                <td>25</td>
+                <td>38</td>
+                <td>-13</td>
+                <td>32</td>
+               
+            </tr>
+
+            <tr>
+                <td>Bangwe All Stars</td>
+                <td>28</td>
+                <td>6</td>
+                <td>9</td>
+                <td>13</td>
+                <td>16</td>
+                <td>28</td>
+                <td>-12</td>
+                <td>27</td>
+               
+            </tr>
+            <tr>
+                <td>FOMO FC</td>
+                <td>27</td>
+                <td>7</td>
+                <td>4</td>
+                <td>16</td>
+                <td>19</td>
+                <td>36</td>
+                <td>-17</td>
+                <td>25</td>
+               
+            </tr>
+            <tr>
+                <td>Chitipa United</td>
+                <td>28</td>
+                <td>5</td>
+                <td>8</td>
+                <td>15</td>
+                <td>30</td>
+                <td>45</td>
+                <td>-15</td>
+                <td>23</td>
+               
+            </tr>
+
+           
+            <tr>
+                <td>Baka City</td>
+                <td>28</td>
+                <td>2</td>
+                <td>7</td>
+                <td>19</td>
+                <td>16</td>
+                <td>69</td>
+                <td>-53</td>
+                <td>13</td>
+               
+            </tr>
+        </tbody>
+    </table>
+
+        </section>
+        
+       <section>
+        
+          <p><h3>click the links to check out each team's 2024 activities</h3></p>
+          
+            <a href="/silver-strikers.html">Silver Strickers | </a>
+          <a href="/mighty-wanderers.html"> Mighty  Wanderers | </a>
+          <a href="/fcb-nyasa-big-bullets.html">FCB Nyasa Big Bullets | </a>
+          <a href="/mzuzu-city-hammers.html">Mzuzu City Hammers | </a>
+          <a href="/civil-service-united.html">Civil Service United | </a>
+          <a href="/mafco-fc.html">MAFCO FC | </a>
+          <a href="/creck-sc.html">Creck Sc | </a>
+          <a href="/kamuzu-barracks.html">Kamuzu Barracks | </a>
+        </p>
+          
+          <p> 
+            <a href="templates/karonga-united.html">Karonga Unuted | </a>
+            <a href="/moyale-barracks.html"> Moyale BarracksFc | </a>
+            <a href="/premeir-bet-dedza-dynamos.html">Premeir Bet Dedza Dynamos |  </a>
+            <a href="/mighty-tigers.html ">Mighty Tigers | </a>
+            <a href="/bangwe-all-stars.html">Bangwe All Stars | </a>
+            <a href="/chitipa-united.html">Chitipa United |  </a>
+            <a href="fomo-fc.html">FOMO FC | </a>
+            <a href="/baka-city-fc.html">Baka City FC | </a>
+          </p>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions,comments, reviews or need further information, feel free to reach out to us at:</p>
+            <p>Email: <a href="mailto:carlosinja2@gmail.com">carlosinja2@gmail.com</a></p>
+            <p>Email: <a href="mailto:bis23-csinja@poly.ac.mw">bis23-csinja@poly.ac.mw</a></p>
+            
+        </section>
+    
+        
+        <section id="support">
+            <h2>Support Us</h2>
+            <p>Your support helps us continue providing quality content. Here are some ways you can contribute:</p>
+            <ul>
+                <li><strong>Bank Transfer</strong>: <p>Bank Name:National Bank | Account Number: 1010568998 | Account Name: Caroline Sinja</p></li>
+                <li><strong>Bank Transfer</strong>: <p>Bank Name:First Capital Bank | Account Number: 0009503052462 | Account Name: Caroline Sinja</p></li>
+                <li><strong>Mobile Payments</strong>: <p>Send payments to: 0991485052(Airtel Money) 0899257506(TNM Mpamba)</p></li>
+            </ul>
+            </section>
+            
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+          <p>&copy; 2024 Malawi Football. All rights reserved.</p>
+          <nav>
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="terms.html">Terms of Services</a>
+            <a href="advertise.html">Advertise With Us</a>
+            <a href="aboutcreator.html">About the Creator</a>
+          </nav>
+        </div>
+      </footer>
+</body>
+</html>

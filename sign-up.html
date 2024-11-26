@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up Page</title>
+    <script type="module">
+         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";  
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";  
+        
+
+        import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";  
+    import { auth, db } from "./firebaseconfig.js";  // Ensure this is the path to your firebaseConfig file
+    import { addDoc, collection } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"; 
+
+   
+  </script>
+
+    
+</head>
+<link rel="stylesheet" href="styles.css">
+
+<body>
+    <div class="signup-login-container">
+    
+        <div id="passwordPrompt" class="modal">
+            <div class="modal-content">
+    <h1>Create Your Account</h1>
+    <form id="signup-form">
+        <input type="username" id="username" placeholder="Enter your username" required />
+        <input type="email" id="email" placeholder="Enter your email" required />
+        <input type="password" id="password" placeholder="Enter your password" required />
+        <input type="password" id="confirmPassword" placeholder="Confirm your password" required />
+       
+        <button type="submit" id="signup-button">Sign Up</button>
+        
+    </form>
+
+</form>
+<p>Already have an account? </a>
+  <p><a href="log-in.html">Login here</a></p>
+</div>
+
+<script>
+const form = document.getElementById("signup-form");
+const signupbutton = document.getElementById("signup-button");
+signupbutton.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const username = document.getElementById("username").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match!");
+    return;
+  }
+
+  try {
+    // Create user with email and password
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    console.log("User created:", userCredential.user);
+
+    // Add user details to Firestore
+    const docRef = await addDoc(collection(db, "users"), {
+      username: username,
+      email: email,
+    });
+    console.log("Document written with ID:", docRef.id);
+
+    // Redirect user to index.html after successful sign-up
+    window.location.href = "index.html";  // Replace with your index.html location
+
+  } catch (error) {
+    console.error("Error creating user:", error);
+    alert("Error creating user: " + error.message);
+  }
+});
+</script>
+</body>
+</html>
+
+  
+    

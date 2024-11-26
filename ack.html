@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acknowledgment Required</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: linear-gradient(90deg, #00264d, #00a1e2);
+        }
+        .acknowledge-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+        .acknowledge-container h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .acknowledge-container p {
+            color: #666;
+            font-size: 14px;
+        }
+        .acknowledge-container a {
+            color: linear-gradient(90deg, #00264d, #00a1e2);
+            text-decoration: none;
+        }
+        .acknowledge-container a:hover {
+            text-decoration: underline;
+        }
+        .acknowledge-container button {
+            background:linear-gradient(90deg, #00264d, #00a1e2);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .acknowledge-container button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="acknowledge-container">
+        <h2>Welcome to Malawi Football 2024!</h2>
+        <p>Thank you for signing up. Before you continue, please review and agree to our terms.</p>
+        <p>By checking the box below, you agree to our 
+            <a href="terms-of-service.html" target="_blank">Terms of Service</a> and 
+            <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
+        </p>
+        <form action="/acknowledge-success" method="POST">
+            <label>
+                <input type="checkbox" name="agree" required>
+                I acknowledge and agree to the Terms of Service and Privacy Policy.
+            </label>
+            <br><br>
+            <button type="submit">Proceed to <a href="index.html">Home</a></button>
+            
+        </form>
+    </div>
+</body>
+</html>
